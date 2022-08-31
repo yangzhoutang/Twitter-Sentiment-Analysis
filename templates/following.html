@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta charset="UTF-8">
+    <title>Users followed by {{name}}</title>
+    <style type="text/css">
+        a:link {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1 style="font-size:130%; font-family:Verdana, sans-serif;">Users followed by {{name}}</h1>
+
+<table>
+    {% for i in follower_list%}
+    <tr>
+        <td align=center width="80"><img src = {{i['image']}}></td>
+        <td style="font-size:70%; font-family:Verdana, sans-serif">
+            <a href="https://twitter.com/{{i['screen_name']}}">{{i['name']}}</a><br>
+            {{i['followers']}} followers<br>
+            Since 2008-08-11
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
